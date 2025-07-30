@@ -1,41 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Bookmark SVG Downloads</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bookmark SVG Gallery</title>
   <style>
-    /*body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }*/
-     body {
+    body {
       font-family: Arial, sans-serif;
       background: #f3f3f3;
       padding: 40px;
       margin: 0;
     }
-    img { width: 300px; border-radius: 8px; cursor: pointer; }
-    button { margin-top: 20px; font-size: 18px; padding: 12px 24px; background-color: #4CAF50; color: white; border: none; border-radius: 8px; cursor: pointer; }
-    button:hover { background-color: #45a049; }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 16px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .download-btn {
+      margin-top: 12px;
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: #007BFF;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .download-btn:hover {
+      color: #0056b3;
+    }
+
+    .download-btn::after {
+      content: "⬇️";
+      font-size: 24px;
+      display: block;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Wooden Bookmark Template</h1>
-
-  <!-- Clickable Thumbnail -->
-  <a href="bookmark_template.html">
-    <img src="bookmarks.svg" alt="Bookmark Preview">
-  </a>
-
-  <br>
-
-  <button onclick="downloadSVG()">Download SVG</button>
+  <h1>SVG Bookmark Templates</h1>
+  <div class="grid" id="svgGrid"></div>
 
   <script>
-    function downloadSVG() {
-      const link = document.createElement('a');
-      link.href = 'bookmark_templates.svg';
-      link.download = 'bookmarks.svg';
-      link.click();
-    }
+    // 👉 Add more filenames to this list — no need to change the HTML
+    const svgFiles = [
+      "bookmark1.svg",
+      "bookmark2.svg",
+      "bookmark3.svg",
+      "bookmark4.svg",
+      "bookmark5.svg"
+      // Add more like "bookmark6.svg", "bookmark7.svg", ...
+    ];
+
+    const grid = document.getElementById("svgGrid");
+
+    svgFiles.forEach(file => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      // SVG thumbnail
+      const img = document.createElement("img");
+      img.src = file;
+      img.alt = file;
+
+      // Download button
+      const button = document.createElement("button");
+      button.className = "download-btn";
+      button.title = "Download SVG";
+      button.onclick = () => {
+        const link = document.createElement("a");
+        link.href = file;
+        link.download = file;
+        link.click();
+      };
+
+      card.appendChild(img);
+      card.appendChild(button);
+      grid.appendChild(card);
+    });
   </script>
 
 </body>
