@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bookmark SVG Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #333;
+      padding: 10px 0;
+    }
+
+    nav a {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      margin: 0 8px;
+      background: #555;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #007BFF;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 40px 0;
+      color: #333;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 16px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .download-btn {
+      margin-top: 12px;
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: #007BFF;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .download-btn:hover {
+      color: #0056b3;
+    }
+
+    .download-btn::after {
+      content: "⬇️";
+      font-size: 24px;
+      display: block;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="templates.html">Templates</a>
+    <a href="page3.html">Page 3</a>
+    <a href="page4.html">Page 4</a>
+  </nav>
+
+  <h1>SVG Bookmark Templates</h1>
+  <div class="grid" id="svgGrid"></div>
+
+  <script>
+    // 👉 Add more filenames to this list — no need to change the HTML
+    const svgFiles = [
+      "plain_1.svg",
+      "plain_rectangle.svg",
+      "plain_rectangle2.svg",
+      "plain_rectangle3.svg",
+      "plain_round_top.svg",
+      "plain_triangle_top.svg",
+      "plain_cat_top.svg",
+      "plain_chess_horse.svg",
+      "plain_chess_pawn.svg",
+      "plain_chess_queen.svg",
+      "plain_top_deer.svg",
+      "cut_clip.svg",
+      "cut_flower.svg",
+      "cut_top_cat.svg",
+      "cut_top_deer.svg",
+      "cut_top_rabit.svg",
+      "cut_top_turtle.svg",
+      "cut_cat_key.svg",
+      "cut_dog.svg",
+      "score_cat_cloud.svg",
+      "score_just_one_more.svg",
+      "score_paws.svg",
+      "score_smiley.svg",
+      "score_flower.svg",
+      "score_top_cat.svg",
+      "score_top_deer.svg",
+      "score_top_rabit.svg"
+    ];
+
+    const grid = document.getElementById("svgGrid");
+
+    svgFiles.forEach(file => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      // SVG thumbnail
+      const img = document.createElement("img");
+      img.src = file;
+      img.alt = file;
+
+      // Download button
+      const button = document.createElement("button");
+      button.className = "download-btn";
+      button.title = "Download SVG";
+      button.onclick = () => {
+        const link = document.createElement("a");
+        link.href = file;
+        link.download = file;
+        link.click();
+      };
+
+      card.appendChild(img);
+      card.appendChild(button);
+      grid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
