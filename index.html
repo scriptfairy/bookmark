@@ -9,13 +9,42 @@
     body {
       font-family: Arial, sans-serif;
       background: #f3f3f3;
-      padding: 40px;
       margin: 0;
+      padding: 0;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #333;
+      padding: 10px 0;
+    }
+
+    nav a {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      margin: 0 8px;
+      background: #555;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #007BFF;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 40px;
+      margin: 40px 0;
       color: #333;
     }
 
@@ -25,6 +54,7 @@
       gap: 24px;
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 20px 40px;
     }
 
     .card {
@@ -72,6 +102,14 @@
 </head>
 <body>
 
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="page2.html">Page 2</a>
+    <a href="page3.html">Page 3</a>
+    <a href="page4.html">Page 4</a>
+  </nav>
+
   <h1>SVG Bookmark Templates</h1>
   <div class="grid" id="svgGrid"></div>
 
@@ -105,7 +143,6 @@
       "score_top_cat.svg",
       "score_top_deer.svg",
       "score_top_rabit.svg"
-      // Add more like "bookmark6.svg", "bookmark7.svg", ...
     ];
 
     const grid = document.getElementById("svgGrid");
