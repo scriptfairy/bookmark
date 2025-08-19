@@ -98,6 +98,20 @@
       display: block;
       margin-top: 4px;
     }
+    /* PDF Section */
+    .pdf-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px 40px;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 70vh; /* responsive height */
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
@@ -106,13 +120,18 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="templates.html">Templates</a>
-    <a href="page3.html">Page 3</a>
-    <a href="page4.html">Page 4</a>
   </nav>
 
   <h1>SVGs To Use</h1>
   <div class="grid" id="svgGrid"></div>
-
+  <!-- PDF Presentation -->
+  <div class="pdf-section">
+    <h1>Workshop Presentation</h1>
+    <iframe src="Laser-cutting - Wooden Bookmark Aug 2025.pdf"></iframe>
+    <p style="text-align:center; margin-top:10px;">
+      <a href="Laser-cutting - Wooden Bookmark Aug 2025.pdf" download>⬇️ Download PDF</a>
+    </p>
+  </div>
   <script>
     // 👉 Add more filenames to this list — no need to change the HTML
     const svgFiles = [
